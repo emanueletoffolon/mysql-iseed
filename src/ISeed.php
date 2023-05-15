@@ -111,6 +111,12 @@ class ISeed {
                 case in_array('data_creazione', $columns, true):
                     $order = "data_creazione ASC";
                     break;
+                case in_array('codice', $columns, true):
+                    $order = "codice ASC";
+                    break;
+                case in_array('id_linguaggio', $columns, true):
+                    $order = "id_linguaggio ASC";
+                    break;
                 default:
                     $order = $columns[0]." ASC";
                     break;
@@ -119,8 +125,8 @@ class ISeed {
             $data = $this->connection->query('SELECT * FROM '.$table." ORDER BY ".$order)->fetchAll(PDO::FETCH_ASSOC);
 
             file_put_contents($this->path_files.$table.".php",
-                "<?php\n\r "
-                .$this->exportArray($data).";"
+                "<?php\n\r"
+                .$this->exportArray($data)
             );
         }
     }
