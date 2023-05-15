@@ -1,0 +1,16 @@
+{
+    "name": "emanueletoffolon/mysql-iseed",
+    "description": "Package for create seeder from mysql database",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Emanueletoffolon\\MysqlIseed\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emanuele Toffolon"
+        }
+    ],
+    "require": {}
+}
