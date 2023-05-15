@@ -119,10 +119,21 @@ class ISeed {
             $data = $this->connection->query('SELECT * FROM '.$table." ORDER BY ".$order)->fetchAll(PDO::FETCH_ASSOC);
 
             file_put_contents($this->path_files.$table.".php",
-                "<?php\n\r return "
-                .var_export($data, true).";"
+                "<?php\n\r "
+                .$this->exportArray($data).";"
             );
         }
+    }
+
+    protected function exportArray($data){
+
+        $ret = "\$values = [];\n";
+
+        foreach($data as $values){
+            $ret .= "\$values[] = ".var_export($values, true).";\n";
+        }
+        $ret .= "\n\nreturn \$values;";
+        return $ret;
     }
 
     /**
