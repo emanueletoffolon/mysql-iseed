@@ -115,7 +115,7 @@ class ISeed {
                     $order = "codice ASC";
                     break;
                 case in_array('id_linguaggio', $columns, true):
-                    $order = "id_linguaggio ASC";
+                    $order = "id_linguaggio ASC, lang ASC";
                     break;
                 default:
                     $order = $columns[0]." ASC";
